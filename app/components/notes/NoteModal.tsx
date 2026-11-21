@@ -88,9 +88,14 @@ export default function NoteModal({ note, onClose }: NoteModalProps) {
         style={{ backgroundColor: note.color }}
       >
         <div className="flex items-start justify-between gap-5">
-          <p className="whitespace-pre-wrap text-[15px] font-medium leading-normal text-[#1F1F1F] sm:text-base">
-            {note.title}
-          </p>
+          <div className="min-w-0">
+            <p className="text-[11px] font-medium text-black/50 sm:text-xs">
+              From {note.senderName}
+            </p>
+            <p className="mt-3 whitespace-pre-wrap text-[15px] font-medium leading-normal text-[#1F1F1F] sm:text-base">
+              {note.title}
+            </p>
+          </div>
 
           <button
             ref={closeButtonRef}
