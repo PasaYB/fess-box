@@ -1,0 +1,55 @@
+# Dependencies (installed inside the image)
+node_modules
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Build output (rebuilt inside the image)
+.next
+out
+build
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# Prisma client is regenerated during the Docker build
+src/generated
+
+# Local SQLite database (persisted in a Docker volume instead)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Git and tooling metadata
+.git
+.gitignore
+.vercel
+.vscode
+.idea
+.DS_Store
+*.pem
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Container files themselves do not need to be in the build context
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+docker-compose.*.yml
+
+# Docs
+README.md

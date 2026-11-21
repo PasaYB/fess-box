@@ -1,5 +1,6 @@
 export interface Note {
   id: string;
+  senderName: string;
   title: string;
   date: string;
   color: string;
@@ -11,7 +12,7 @@ type NoteCardProps = {
 };
 
 export default function NoteCard({ note, onSelect }: NoteCardProps) {
-  const { title, date, color } = note;
+  const { senderName, title, date, color } = note;
 
   return (
     <button
@@ -27,7 +28,15 @@ export default function NoteCard({ note, onSelect }: NoteCardProps) {
       </span>
 
       <span className="flex items-center justify-between gap-3">
-        <time className="text-[11px] font-medium text-black/55">{date}</time>
+        <time className="shrink-0 text-[11px] font-medium text-black/55">
+          {date}
+        </time>
+        <span
+          title={senderName}
+          className="min-w-0 truncate text-[11px] font-medium text-black/55"
+        >
+          {senderName}
+        </span>
 
         {/* ADMIN ONLY
         <button

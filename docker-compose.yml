@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Set GHCR_IMAGE=ghcr.io/<owner>/<repo>:<tag> for registry-based deploys.
+    # When unset, the local build is tagged menfess:latest.
+    image: ${GHCR_IMAGE:-menfess:latest}
+    container_name: menfess
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: production
+      # SQLite lives on the named volume below so data survives restarts/rebuilds.
+      DATABASE_URL: "file:/app/data/menfess.db"
+      PORT: 3000
+      HOSTNAME: "0.0.0.0"
+    volumes:
+      - menfess-data:/app/data
+    # Apply pending Prisma migrations, then start Next.js.
+    command: sh -c "npx prisma migrate deploy && npm start"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  # SQLite data is persisted here. Do not delete this volume in production.
+  menfess-data:

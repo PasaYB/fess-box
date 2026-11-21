@@ -1,11 +1,14 @@
 "use client";
 
 import { Plus } from "lucide-react";
+import { useMenfess } from "@/app/components/notes/MenfessProvider";
 
 const glassPanel =
   "relative isolate overflow-hidden rounded-full border border-white/50 bg-white/40 backdrop-blur-2xl backdrop-saturate-200 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),inset_0_-1px_1px_rgba(255,255,255,0.3),0_12px_40px_-12px_rgba(15,23,42,0.28)] supports-[backdrop-filter]:bg-white/30";
 
 export default function Navbar() {
+  const { openCreateNote } = useMenfess();
+
   return (
     <header className="shrink-0">
       <div
@@ -17,7 +20,8 @@ export default function Navbar() {
 
         <button
           type="button"
-          aria-label="Buat catatan baru"
+          onClick={openCreateNote}
+          aria-label="Add new fess"
           className="flex items-center justify-center gap-3 rounded-full bg-black px-4 py-3 text-sm font-medium text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:hidden"
         >
           <Plus aria-hidden="true" className="h-5 w-5" strokeWidth={2.25} />
