@@ -41,7 +41,7 @@ async function AdminDashboard({ searchParams }: AdminPageProps) {
   ]);
 
   return (
-    <div className="mx-auto w-full max-w-5xl py-2 md:py-4">
+    <div className="mx-auto w-full max-w-5xl px-4 py-8 md:px-8 md:py-10">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-sm font-medium text-gray-500">FessNotes / Admin</p>
@@ -90,7 +90,7 @@ async function AdminDashboard({ searchParams }: AdminPageProps) {
                 {item.status === "APPROVED" ? "Disetujui" : item.status === "REJECTED" ? "Ditolak" : "Menunggu"}
               </span>
             </div>
-            <p className="mt-4 whitespace-pre-wrap break-words text-sm leading-7 text-gray-800">{item.content}</p>
+            <p className="mt-4 whitespace-pre-wrap wrap-break-word text-sm leading-7 text-gray-800">{item.content}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {item.status !== "APPROVED" && (
                 <form action={updateMenfessStatusAction}>
