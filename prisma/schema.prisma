@@ -12,6 +12,7 @@ model Menfess {
   senderName String?
   content   String
   color     String   @default("#FFF4CC")
+  status    String   @default("PENDING")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

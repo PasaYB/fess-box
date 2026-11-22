@@ -1,6 +1,7 @@
 "use client";
 
-import { Plus } from "lucide-react";
+import { Plus, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 import { useMenfess } from "@/app/components/notes/MenfessProvider";
 
 const glassPanel =
@@ -18,14 +19,21 @@ export default function Navbar() {
           FessNotes
         </h1>
 
-        <button
-          type="button"
-          onClick={openCreateNote}
-          aria-label="Add new fess"
-          className="flex items-center justify-center gap-3 rounded-full bg-black px-4 py-3 text-sm font-medium text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:hidden"
-        >
-          <Plus aria-hidden="true" className="h-5 w-5" strokeWidth={2.25} />
-        </button>
+        <div className="flex items-center gap-2">
+          <Link href="/admin/login" title="Login admin" className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 text-sm font-medium text-gray-700 transition hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50 md:h-11">
+            <ShieldCheck aria-hidden="true" className="h-4 w-4" />
+            <span>Admin</span>
+          </Link>
+
+          <button
+            type="button"
+            onClick={openCreateNote}
+            aria-label="Add new fess"
+            className="flex items-center justify-center gap-3 rounded-full bg-black px-4 py-3 text-sm font-medium text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:hidden"
+          >
+            <Plus aria-hidden="true" className="h-5 w-5" strokeWidth={2.25} />
+          </button>
+        </div>
       </div>
     </header>
   );

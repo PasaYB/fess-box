@@ -532,6 +532,7 @@ export const MenfessScalarFieldEnum = {
   senderName: 'senderName',
   content: 'content',
   color: 'color',
+  status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
