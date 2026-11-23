@@ -15,6 +15,7 @@ async function NotesFromDatabase() {
   await connection();
 
   const menfesses = await prisma.menfess.findMany({
+    where: { status: "APPROVED" },
     orderBy: { createdAt: "desc" },
   });
 

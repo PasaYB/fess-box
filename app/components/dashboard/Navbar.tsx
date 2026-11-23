@@ -18,14 +18,16 @@ export default function Navbar() {
           FessNotes
         </h1>
 
-        <button
-          type="button"
-          onClick={openCreateNote}
-          aria-label="Add new fess"
-          className="flex items-center justify-center gap-3 rounded-full bg-black px-4 py-3 text-sm font-medium text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:hidden"
-        >
-          <Plus aria-hidden="true" className="h-5 w-5" strokeWidth={2.25} />
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={openCreateNote}
+            aria-label="Add new fess"
+            className="flex items-center justify-center gap-3 rounded-full bg-black px-4 py-3 text-sm font-medium text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:hidden"
+          >
+            <Plus aria-hidden="true" className="h-5 w-5" strokeWidth={2.25} />
+          </button>
+        </div>
       </div>
     </header>
   );

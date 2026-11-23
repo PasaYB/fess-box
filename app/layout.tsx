@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import DashboardLayout from "@/app/components/dashboard/DashboardLayout";
 
 export const metadata: Metadata = {
   title: "Menfess",
@@ -15,7 +14,11 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className="bg-gray-100 text-gray-900 antialiased">
-        <DashboardLayout>{children}</DashboardLayout>
+        <div className="flex h-screen w-full items-center justify-center bg-gray-100 p-0 md:p-6">
+          <div className="relative flex h-full w-full max-w-360 overflow-hidden bg-white md:rounded-3xl">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
