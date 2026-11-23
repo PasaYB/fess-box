@@ -39,6 +39,7 @@ export type MenfessMinAggregateOutputType = {
   senderName: string | null
   content: string | null
   color: string | null
+  status: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -48,6 +49,7 @@ export type MenfessMaxAggregateOutputType = {
   senderName: string | null
   content: string | null
   color: string | null
+  status: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -57,6 +59,7 @@ export type MenfessCountAggregateOutputType = {
   senderName: number
   content: number
   color: number
+  status: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -76,6 +79,7 @@ export type MenfessMinAggregateInputType = {
   senderName?: true
   content?: true
   color?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -85,6 +89,7 @@ export type MenfessMaxAggregateInputType = {
   senderName?: true
   content?: true
   color?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -94,6 +99,7 @@ export type MenfessCountAggregateInputType = {
   senderName?: true
   content?: true
   color?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -190,6 +196,7 @@ export type MenfessGroupByOutputType = {
   senderName: string | null
   content: string
   color: string
+  status: string
   createdAt: Date
   updatedAt: Date
   _count: MenfessCountAggregateOutputType | null
@@ -222,6 +229,7 @@ export type MenfessWhereInput = {
   senderName?: Prisma.StringNullableFilter<"Menfess"> | string | null
   content?: Prisma.StringFilter<"Menfess"> | string
   color?: Prisma.StringFilter<"Menfess"> | string
+  status?: Prisma.StringFilter<"Menfess"> | string
   createdAt?: Prisma.DateTimeFilter<"Menfess"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Menfess"> | Date | string
 }
@@ -231,6 +239,7 @@ export type MenfessOrderByWithRelationInput = {
   senderName?: Prisma.SortOrderInput | Prisma.SortOrder
   content?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -243,6 +252,7 @@ export type MenfessWhereUniqueInput = Prisma.AtLeast<{
   senderName?: Prisma.StringNullableFilter<"Menfess"> | string | null
   content?: Prisma.StringFilter<"Menfess"> | string
   color?: Prisma.StringFilter<"Menfess"> | string
+  status?: Prisma.StringFilter<"Menfess"> | string
   createdAt?: Prisma.DateTimeFilter<"Menfess"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Menfess"> | Date | string
 }, "id">
@@ -252,6 +262,7 @@ export type MenfessOrderByWithAggregationInput = {
   senderName?: Prisma.SortOrderInput | Prisma.SortOrder
   content?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.MenfessCountOrderByAggregateInput
@@ -269,6 +280,7 @@ export type MenfessScalarWhereWithAggregatesInput = {
   senderName?: Prisma.StringNullableWithAggregatesFilter<"Menfess"> | string | null
   content?: Prisma.StringWithAggregatesFilter<"Menfess"> | string
   color?: Prisma.StringWithAggregatesFilter<"Menfess"> | string
+  status?: Prisma.StringWithAggregatesFilter<"Menfess"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Menfess"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Menfess"> | Date | string
 }
@@ -277,6 +289,7 @@ export type MenfessCreateInput = {
   senderName?: string | null
   content: string
   color?: string
+  status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -286,6 +299,7 @@ export type MenfessUncheckedCreateInput = {
   senderName?: string | null
   content: string
   color?: string
+  status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -294,6 +308,7 @@ export type MenfessUpdateInput = {
   senderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -303,6 +318,7 @@ export type MenfessUncheckedUpdateInput = {
   senderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -312,6 +328,7 @@ export type MenfessCreateManyInput = {
   senderName?: string | null
   content: string
   color?: string
+  status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -320,6 +337,7 @@ export type MenfessUpdateManyMutationInput = {
   senderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -329,6 +347,7 @@ export type MenfessUncheckedUpdateManyInput = {
   senderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -338,6 +357,7 @@ export type MenfessCountOrderByAggregateInput = {
   senderName?: Prisma.SortOrder
   content?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -351,6 +371,7 @@ export type MenfessMaxOrderByAggregateInput = {
   senderName?: Prisma.SortOrder
   content?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -360,6 +381,7 @@ export type MenfessMinOrderByAggregateInput = {
   senderName?: Prisma.SortOrder
   content?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -395,6 +417,7 @@ export type MenfessSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   senderName?: boolean
   content?: boolean
   color?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["menfess"]>
@@ -404,6 +427,7 @@ export type MenfessSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   senderName?: boolean
   content?: boolean
   color?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["menfess"]>
@@ -413,6 +437,7 @@ export type MenfessSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   senderName?: boolean
   content?: boolean
   color?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["menfess"]>
@@ -422,11 +447,12 @@ export type MenfessSelectScalar = {
   senderName?: boolean
   content?: boolean
   color?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type MenfessOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "senderName" | "content" | "color" | "createdAt" | "updatedAt", ExtArgs["result"]["menfess"]>
+export type MenfessOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "senderName" | "content" | "color" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["menfess"]>
 
 export type $MenfessPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Menfess"
@@ -436,6 +462,7 @@ export type $MenfessPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     senderName: string | null
     content: string
     color: string
+    status: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["menfess"]>
@@ -865,6 +892,7 @@ export interface MenfessFieldRefs {
   readonly senderName: Prisma.FieldRef<"Menfess", 'String'>
   readonly content: Prisma.FieldRef<"Menfess", 'String'>
   readonly color: Prisma.FieldRef<"Menfess", 'String'>
+  readonly status: Prisma.FieldRef<"Menfess", 'String'>
   readonly createdAt: Prisma.FieldRef<"Menfess", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Menfess", 'DateTime'>
 }
