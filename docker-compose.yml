@@ -13,10 +13,6 @@ services:
       - "127.0.0.1:3000:3000"
     environment:
       NODE_ENV: production
-      # Demo-only defaults for coursework. Override these for any shared deployment.
-      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
-      ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:-scrypt:RUDtPpZUR9nD7iRhTxlwlQ:bSnFRM-NNboN-YWt4JkcVplwqGtt1MPA2vbQ5NSkbBzQSfJl6In2KOZl_1Whi4qmh9XaymtahF_AHZ1Pg1RWqA}
-      ADMIN_SESSION_SECRET: ${ADMIN_SESSION_SECRET:-fess-box-coursework-demo-session-secret-rotate-before-sharing}
       # SQLite lives on the named volume below so data survives restarts/rebuilds.
       DATABASE_URL: "file:/app/data/menfess.db"
       PORT: 3000
