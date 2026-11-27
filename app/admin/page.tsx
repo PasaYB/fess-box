@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { connection } from "next/server";
 import { Check, Clock3, LogOut, X } from "lucide-react";
 import { adminLogoutAction, updateMenfessStatusAction } from "@/app/actions/admin";
+import DeleteMenfessButton from "@/app/components/admin/DeleteMenfessButton";
 import { requireAdmin } from "@/src/lib/admin-auth";
 import { prisma } from "@/src/lib/prisma";
 
@@ -14,7 +15,13 @@ const formatDate = new Intl.DateTimeFormat("id-ID", {
 });
 
 type AdminPageProps = {
-  searchParams: Promise<{ tab?: string; updated?: string; saved?: string; error?: string }>;
+  searchParams: Promise<{
+    tab?: string;
+    updated?: string;
+    saved?: string;
+    deleted?: string;
+    error?: string;
+  }>;
 };
 
 export default function AdminPage(props: AdminPageProps) {
@@ -55,8 +62,15 @@ async function AdminDashboard({ searchParams }: AdminPageProps) {
         </form>
       </div>
 
-      {params.error && <p role="alert" className="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">Aksi tidak valid. Muat ulang halaman dan coba lagi.</p>}
+      {params.error && (
+        <p role="alert" className="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+          {params.error === "notfound"
+            ? "Menfess tidak ditemukan. Mungkin sudah dihapus sebelumnya."
+            : "Aksi tidak valid. Muat ulang halaman dan coba lagi."}
+        </p>
+      )}
       {params.saved === "1" && <p role="status" className="mt-5 rounded-xl bg-green-50 px-4 py-3 text-sm text-green-700">Status menfess berhasil diperbarui.</p>}
+      {params.deleted === "1" && <p role="status" className="mt-5 rounded-xl bg-green-50 px-4 py-3 text-sm text-green-700">Menfess berhasil dihapus permanen.</p>}
 
       <div className="mt-7 grid grid-cols-3 gap-3 sm:gap-4">
         <div className="rounded-2xl border border-amber-100 bg-amber-50 p-4"><p className="text-xs font-medium text-amber-800">Menunggu</p><p className="mt-1 text-2xl font-bold text-gray-900">{pendingCount}</p></div>
@@ -113,6 +127,7 @@ async function AdminDashboard({ searchParams }: AdminPageProps) {
                   <button type="submit" className="rounded-full px-4 py-2.5 text-sm font-medium text-gray-500 transition hover:bg-gray-100">Kembalikan ke antrean</button>
                 </form>
               )}
+              {item.status === "REJECTED" && <DeleteMenfessButton id={item.id} />}
             </div>
           </article>
         ))}

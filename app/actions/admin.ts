@@ -48,3 +48,22 @@ export async function updateMenfessStatusAction(formData: FormData) {
   revalidatePath("/admin");
   redirect("/admin?updated=1");
 }
+
+export async function deleteMenfessAction(formData: FormData) {
+  await requireAdmin();
+  const id = Number(formData.get("id"));
+  if (!Number.isSafeInteger(id) || id <= 0) {
+    redirect("/admin?tab=rejected&error=invalid");
+  }
+
+  // deleteMany is used so a missing row does not throw; count tells us whether
+  // anything was actually removed.
+  const { count } = await prisma.menfess.deleteMany({ where: { id } });
+  if (count === 0) {
+    redirect("/admin?tab=rejected&error=notfound");
+  }
+
+  revalidatePath("/");
+  revalidatePath("/admin");
+  redirect("/admin?tab=rejected&deleted=1");
+}
